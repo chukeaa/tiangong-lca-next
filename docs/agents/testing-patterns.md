@@ -22,8 +22,8 @@ checkPaths:
   - tests/data-workflows/**
   - package.json
 lastReviewedAt: 2026-07-17
-lastReviewedCommit: ba30c48a4157e5a30e3ab57b23263ae021923668
-lastReviewedNote: 'Reviewed the v0.0.48 version-only release checkpoint; testing, localization, and managed-push patterns are unchanged.'
+lastReviewedCommit: cc66ad9a4084063b3fea7659bb4271303a88ba2e
+lastReviewedNote: 'Reviewed Issue #614 component proof and V8-safe single-worker recycle pattern together with the v0.0.48 checkpoint; testing, localization, and managed-push patterns remain authoritative.'
 ---
 
 # Testing Patterns Reference
@@ -105,6 +105,7 @@ Special cases:
 Gate-bootstrap pattern:
 
 - when a hook supports both `PATH` and a version manager, test the already-correct active runtime while the version-manager fallback is deliberately unusable; the hook must not replace a compatible runner-provided runtime
+- when a long in-band coverage run reproducibly crashes the native runtime, isolate any operational suite that imports no `src/**`, then run all remaining suites through one worker at a time with a documented idle-memory recycle boundary; lock the exact selection/exclusion and worker contract in the isolated suite, and let the coordinator retain the global 100% source threshold across worker replacements
 
 ## Focused Command Shapes
 

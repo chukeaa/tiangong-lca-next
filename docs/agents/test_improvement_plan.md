@@ -21,8 +21,8 @@ checkPaths:
   - tests/**
   - package.json
 lastReviewedAt: 2026-07-17
-lastReviewedCommit: ba30c48a4157e5a30e3ab57b23263ae021923668
-lastReviewedNote: 'Reviewed the v0.0.48 version-only release checkpoint without reopening the long-term testing strategy.'
+lastReviewedCommit: cc66ad9a4084063b3fea7659bb4271303a88ba2e
+lastReviewedNote: 'Reviewed Issue #614 selector proof and V8-safe single-worker recycle boundary together with the v0.0.48 checkpoint; the full-closure strategy and long-term quality bar remain unchanged.'
 ---
 
 # Testing Strategy
@@ -41,7 +41,7 @@ lastReviewedNote: 'Reviewed the v0.0.48 version-only release checkpoint without 
 - clean-runner localization tests should prove tracked structure with explicitly absent private forms, while generated temporary approvals separately cover the fail-closed local human-evidence path
 - proof should be risk-proportional and scoped-first: micro-edits use focused checks, coherent batches use subsystem audits, and the repository full gate runs once for the final committed controlled checkpoint
 - gate ownership should prevent duplicate work: a normal delivery uses the push hook as the single full-gate owner, while a no-push handoff may run it manually instead
-- each production release workflow should also have one full-suite owner: coverage-enabled `prepush:gate`, without a preceding duplicate `test:ci`
+- each production release workflow should also have one full-suite owner: `prepush:gate`, which executes the complete test inventory once with at most one coverage worker active at a time, recycles that worker at the documented memory boundary, and retains unchanged 100% `src/**` coverage without a preceding duplicate `test:ci` or coverage run
 
 ## Operating Principles
 

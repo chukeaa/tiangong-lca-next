@@ -27,8 +27,8 @@ checkPaths:
   - .husky/pre-push
   - .github/workflows/**
 lastReviewedAt: 2026-07-17
-lastReviewedCommit: f86df7f273c4975a66bd04d74181ca8f31224979
-lastReviewedNote: 'Reviewed the v0.0.48 version-only release checkpoint; repo ownership, branch facts, release automation, and hard boundaries are unchanged.'
+lastReviewedCommit: cc66ad9a4084063b3fea7659bb4271303a88ba2e
+lastReviewedNote: 'Reviewed Issue #614 shared text-only language selector and V8-safe gate changes together with the v0.0.48 checkpoint; repo ownership, branch facts, release automation, and hard boundaries are unchanged.'
 related:
   - .docpact/config.yaml
   - docs/agents/repo-validation.md

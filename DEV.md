@@ -21,8 +21,8 @@ checkPaths:
   - package.json
   - .nvmrc
 lastReviewedAt: 2026-07-17
-lastReviewedCommit: f86df7f273c4975a66bd04d74181ca8f31224979
-lastReviewedNote: 'Reviewed the v0.0.48 version-only release checkpoint; bootstrap commands and the shortest managed final-push loop are unchanged.'
+lastReviewedCommit: cc66ad9a4084063b3fea7659bb4271303a88ba2e
+lastReviewedNote: 'Reviewed Issue #614 focused UI proof and V8-safe managed gate flow together with the v0.0.48 checkpoint; bootstrap commands, validation ownership, and the shortest managed final-push loop remain authoritative.'
 ---
 
 # Development Bootstrap

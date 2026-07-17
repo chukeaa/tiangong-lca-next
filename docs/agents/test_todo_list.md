@@ -21,8 +21,8 @@ checkPaths:
   - scripts/test-runner.cjs
   - scripts/test-coverage-report.js
 lastReviewedAt: 2026-07-17
-lastReviewedCommit: ba30c48a4157e5a30e3ab57b23263ae021923668
-lastReviewedNote: 'Reviewed the v0.0.48 version-only release checkpoint; the checked-in full-closure reference and current execution state are unchanged.'
+lastReviewedCommit: cc66ad9a4084063b3fea7659bb4271303a88ba2e
+lastReviewedNote: 'Reviewed Issue #614 selector coverage and V8-safe single-worker recycle boundary together with the v0.0.48 checkpoint; full closure and the current execution state remain intact with no new queue.'
 ---
 
 # Testing Execution State
@@ -50,7 +50,7 @@ This is a checked-in reference, not a per-PR execution ledger. A delivery's post
 - German structural proof uses `i18n:audit`, `i18n:de:runtime:manifest:check`, `i18n:de:delta:review:check`, and final `i18n:de:audit`; the historical frozen `i18n:de:pilot` check remains independently fail-closed, focused proof stays in the edit loop, and each delivery gets one post-commit full gate through `push:checked`
 - clean-checkout German suites inject missing private confirmation paths and require every tracked structural finding to stay at zero; the active-runtime suite expects only the Issue #606 delta-confirmation finding, while generated temporary forms retain positive and fail-closed approval coverage without making `.local` a repository-gate input
 - pre-push receipt coverage includes a setup-node-style active Node 24 with an unusable NVM install, so runner bootstrap cannot exit before the repo-owned hook coordinator
-- the production Release Gate delegates the complete coverage-enabled suite to one `prepush:gate` step and no longer repeats all Jest tests through an earlier standalone `test:ci`
+- the production Release Gate delegates the complete test inventory to one `prepush:gate` step: the nested-process receipt suite runs once without coverage in its own Jest process, while every remaining suite runs once through a single-worker coordinator that recycles workers above `64MB` and retains unchanged 100% `src/**` coverage; no earlier standalone `test:ci` is allowed
 - a failed managed transport may be retried without repeating the full gate only through the ignored, exact-intent, one-hour receipt and argument-free `npm run push:retry`; any controlled-input drift requires a fresh managed push and gate
 - Issue #606 plus the merged clean-runner assertions now has 87-test focused proof across the release service, Calculation Bundle panel, public release panel, Data Processing integration, Process integration, and locale inventory; the final branch-wide proof remains owned by the push hook
 - dataset SDK validation adapters, shared localized validation helpers, and validation-report navigation now ride on the maintained full-closure baseline

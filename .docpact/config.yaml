@@ -1,8 +1,8 @@
 version: 1
 layout: repo
 lastReviewedAt: '2026-07-17'
-lastReviewedCommit: 'ba30c48a4157e5a30e3ab57b23263ae021923668'
-lastReviewedNote: 'Reviewed the v0.0.48 version-only release checkpoint; ownership, routing, and the test-gate rule graph are unchanged.'
+lastReviewedCommit: 'cc66ad9a4084063b3fea7659bb4271303a88ba2e'
+lastReviewedNote: 'Reviewed Issue #614 text-only selector and V8-safe single-worker coverage model together with the v0.0.48 version checkpoint; ownership, routing, and gate ownership remain covered by the existing rule graph.'
 
 # Keep path-level ownership, routing intents, and governed-doc rules here.
 # AGENTS.md keeps the entry-level repo contract and minimal execution summary.
